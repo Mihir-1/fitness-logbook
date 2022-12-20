@@ -2,7 +2,6 @@ import { ToggleButton, ToggleButtonGroup } from '@mui/material'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-
 const Navbar = () => {
   const [selected, setSelected] = useState("Logbook")
 
@@ -35,7 +34,7 @@ const Navbar = () => {
           Stats
         </ToggleButton>
         <ToggleButton
-          value="Tres"          
+          value="Tres"
         >
           {selected}
         </ToggleButton>
