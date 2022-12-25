@@ -9,11 +9,10 @@ import {
   Paper
 } from '@mui/material'
 
-const Exercise = ({ name, sets }) => {
+const ExerciseTable = ({ sets }) => {
   return (
     <div>
-      <h3>{name}</h3>
-      <TableContainer  sx={{ maxWidth: 500 }} component={Paper}>
+      <TableContainer sx={{ maxWidth: 500 }} component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -40,4 +39,4 @@ const Exercise = ({ name, sets }) => {
   )
 }
 
-export default Exercise
+export default ExerciseTable
