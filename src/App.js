@@ -1,19 +1,24 @@
-import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Logbook from './components/pages/Logbook';
-import Stats from './components/pages/Stats'
+import Logbook from './components/Logbook';
+import Stats from './components/Stats'
+import { Container } from '@mui/material';
 
 function App() {
 
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path='/' element={<Logbook />} />
-        <Route path='/stats' element={<Stats/>} />
-      </Routes>
+      {/* <CssBaseline /> */}
+      <div>
+        <Navbar />
+        <Container>
+          <Routes>
+            <Route exact path='/' element={<Logbook />} />
+            <Route path='/stats' element={<Stats />} />
+          </Routes>
+        </Container>
+      </div>
     </Router>
   );
 }
