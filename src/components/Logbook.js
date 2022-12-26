@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import ExerciseTable from './ExerciseTable';
-import { Fab, Stack } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
+import Exercise from './Exercise';
+
 
 
 const Logbook = () => {
@@ -48,16 +47,10 @@ const Logbook = () => {
   return (
     <div>
       {workout.map((exercise) => (
-        <Stack key={exercise.id} spacing={1} >
-          <h3 style={{ marginBlockEnd: 0 }}>{exercise.name}</h3>
-          <ExerciseTable
-            sets={exercise.sets}
-          />
-          <Fab size="small" variant="extended" color="primary">
-            <AddIcon sx={{ mr: 1 }} />
-            Add Set
-          </Fab>
-        </Stack>
+        <Exercise
+          exercise={exercise}
+          key={exercise.id}
+        />
       ))}
     </div>
   )

@@ -6,13 +6,12 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Paper
 } from '@mui/material'
 
 const ExerciseTable = ({ sets }) => {
   return (
     <div>
-      <TableContainer sx={{ maxWidth: 500 }} component={Paper}>
+      <TableContainer /*component={Paper}*/>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>

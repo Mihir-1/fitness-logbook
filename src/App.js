@@ -12,7 +12,7 @@ function App() {
       {/* <CssBaseline /> */}
       <div>
         <Navbar />
-        <Container>
+        <Container sx={{ maxWidth: 500 }}>
           <Routes>
             <Route exact path='/' element={<Logbook />} />
             <Route path='/stats' element={<Stats />} />

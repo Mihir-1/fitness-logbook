@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar sx={{ justifyContent: "space-around" }}>
+        <Toolbar sx={{ justifyContent: "center" }}>
           <Button href="/" color="inherit" size="large">
             Logbook
           </Button>
