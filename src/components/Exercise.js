@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import ExerciseTable from './ExerciseTable';
-import { Fab, Paper, Stack } from '@mui/material';
+import { Button, Paper, Stack } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import AddSet from './AddSet';
 
-const Exercise = ({ exercise }) => {
+const Exercise = ({ exercise, onAdd, onDeleteSet, onDeleteExercise, id }) => {
   const [showAddSet, setShowAddSet] = useState(false)
 
   return (
@@ -16,14 +16,22 @@ const Exercise = ({ exercise }) => {
       <h3 style={{ marginBlockEnd: 0 }}>{exercise.name}</h3>
       <Paper>
         <Stack>
-          <ExerciseTable sets={exercise.sets} />
+          <ExerciseTable
+            sets={exercise.sets}
+            onDeleteSet={(setNumber) => onDeleteSet({setNumber, id})}
+            onDeleteExercise={onDeleteExercise}
+            id={id}
+          />
           {showAddSet &&
-            <AddSet />
+            <AddSet onAdd={(e) => {
+              onAdd(e)
+              setShowAddSet(false)
+            }} id={id} />
           }
-          <Fab
+          <Button
             size="small"
-            variant="extended"
-            color={showAddSet ? "secondary" : "primary"}
+            variant="outlined"
+            color={showAddSet ? "error" : "primary"}
             onClick={ () => {setShowAddSet(!showAddSet)} }
             sx={{ marginBottom: 1, marginTop: 1 }}
           >
@@ -32,7 +40,7 @@ const Exercise = ({ exercise }) => {
               <AddIcon sx={{ mr: 1 }} />
             }
             {showAddSet ? "Close" : "Add Set"}
-          </Fab>
+          </Button>
         </Stack>
       </Paper>
     </Stack>

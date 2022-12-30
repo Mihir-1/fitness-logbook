@@ -1,7 +1,7 @@
 import { Button, TextField, Container } from '@mui/material'
 import React, { useState } from 'react'
 
-const AddSet = () => {
+const AddSet = ({ onAdd, id }) => {
   const [weight, setWeight] = useState('')
   const [reps, setReps] = useState('')
 
@@ -14,9 +14,7 @@ const AddSet = () => {
       alert('Please Add Reps')
       return
     }
-    console.log(weight)
-    console.log(reps)
-    // Response function
+    onAdd({ id, weight, reps })
     setWeight('')
     setReps('')
   }

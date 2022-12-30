@@ -1,4 +1,6 @@
 import React from 'react'
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+
 import {
   TableContainer,
   Table,
@@ -6,9 +8,11 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Button,
 } from '@mui/material'
 
-const ExerciseTable = ({ sets }) => {
+
+const ExerciseTable = ({ sets, onDeleteSet, onDeleteExercise, id }) => {
   return (
     <div>
       <TableContainer /*component={Paper}*/>
@@ -18,17 +22,33 @@ const ExerciseTable = ({ sets }) => {
               <TableCell>Set</TableCell>
               <TableCell align="right">Weight&nbsp;(lbs)</TableCell>
               <TableCell align="right">Reps</TableCell>
+              <TableCell align="right">
+                <Button
+                  style={{color: "red"}}
+                  onClick={() => onDeleteExercise(id)}
+                >
+                  <DeleteForeverTwoToneIcon />
+                </Button>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {sets.map((set) => (
+            {sets.map((set, index) => (
               <TableRow
                 key={set.number}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell>{set.number}</TableCell>
+                <TableCell>{index + 1}</TableCell>
                 <TableCell align="right">{set.weight}</TableCell>
                 <TableCell align="right">{set.reps}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    style={{color: "grey"}}
+                    onClick={() => onDeleteSet(set.number)}
+                  >
+                    <DeleteForeverTwoToneIcon />
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
