@@ -15,7 +15,7 @@ import {
 const ExerciseTable = ({ sets, onDeleteSet, onDeleteExercise, id }) => {
   return (
     <div>
-      <TableContainer /*component={Paper}*/>
+      <TableContainer>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
